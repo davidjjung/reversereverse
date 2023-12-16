@@ -1,5 +1,6 @@
 package com.davigj.reverse_reverse.common.item;
 
+import com.davigj.reverse_reverse.core.RRConfig;
 import com.davigj.reverse_reverse.core.ReverseReverse;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.resources.ResourceLocation;
