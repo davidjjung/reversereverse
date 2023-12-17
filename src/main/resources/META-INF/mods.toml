@@ -1,17 +1,17 @@
 modLoader = "javafml"
 loaderVersion = "[32,)"
-issueTrackerURL = ""
+issueTrackerURL = "https://github.com/davidjjung/reversereverse/issues"
 license = "MIT License"
 
 [[mods]]
 modId = "reverse_reverse"
 version = "${file.jarVersion}"
 logoFile = "logo.png"
-itemIcon = "minecraft:dirt"
+itemIcon = "reverse_reverse:retro_sneakers"
 configBackground = "minecraft:textures/block/dirt.png"
 authors = "DavigJ"
-credits = ""
-displayURL = ""
+credits = "DavigJ"
+displayURL = "https://github.com/davidjjung/reversereverse/"
 displayName = "Reverse Reverse"
 description = '''
     Cha cha real smooth. Adds some quirky armor items associated with moving backwards.

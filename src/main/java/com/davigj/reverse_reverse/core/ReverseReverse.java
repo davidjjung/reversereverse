@@ -1,5 +1,6 @@
 package com.davigj.reverse_reverse.core;
 
+import com.davigj.reverse_reverse.core.registry.RRParticleTypes;
 import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.data.event.GatherDataEvent;
@@ -22,6 +23,7 @@ public class ReverseReverse {
         MinecraftForge.EVENT_BUS.register(this);
 
 		REGISTRY_HELPER.register(bus);
+        RRParticleTypes.PARTICLE_TYPES.register(bus);
 
         bus.addListener(this::commonSetup);
         bus.addListener(this::clientSetup);
