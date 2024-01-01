@@ -17,10 +17,10 @@ public class RRConfig {
             villagersTrade = builder.comment("Do villagers trade reverse reverse armor items").define("Villagers trade", true);
             retroTrade = builder.comment("Do villagers trade retro sneakers").define("Retro sneakers trade", true);
             nostalgicTrade = builder.comment("Do villagers trade nostalgic glasses").define("Nostalgic glasses trade", true);
-            moonTrade = builder.comment("Do armorers trade moon walkers").define("Moon walkers trade", true);
+            moonTrade = builder.comment("Do villagers trade moon walkers").define("Moon walkers trade", true);
             builder.pop();
             builder.push("tweaks");
-            moonFallReduction = builder.comment("Moon walkers fall damage reduction percentage. Decimal number of 0.0 through 1.0").define("Moon walkers fall reduction", 0.25);
+            moonFallReduction = builder.comment("Moon walkers fall damage reduction percentage. Decimal number of 0.0 through 1.0").define("Moon walkers fall reduction", 0.5);
             builder.pop();
             builder.pop();
         }

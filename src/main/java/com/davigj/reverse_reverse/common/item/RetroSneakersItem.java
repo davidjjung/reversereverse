@@ -4,8 +4,10 @@ import com.davigj.reverse_reverse.client.model.MoonWalkersModel;
 import com.davigj.reverse_reverse.client.model.RetroSneakersModel;
 import com.davigj.reverse_reverse.core.RRConfig;
 import com.davigj.reverse_reverse.core.ReverseReverse;
+import net.minecraft.ChatFormatting;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.player.LocalPlayer;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -17,14 +19,17 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import net.minecraftforge.common.ForgeMod;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
+import java.util.List;
 import java.util.function.Consumer;
 
 public class RetroSneakersItem extends ArmorItem {
@@ -91,6 +96,11 @@ public class RetroSneakersItem extends ArmorItem {
     @Nullable
     public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
         return new ResourceLocation(ReverseReverse.MOD_ID, "textures/models/armor/retro_sneakers.png").toString();
+    }
+
+    public void appendHoverText(@NotNull ItemStack stack, @Nullable Level worldIn, @NotNull List<Component> tooltip, @NotNull TooltipFlag flagIn) {
+        tooltip.add(Component.translatable("item.reverse_reverse.backwards").withStyle(ChatFormatting.GRAY));
+        tooltip.add(Component.translatable("item.reverse_reverse.retro_sneakers_speed_boost").withStyle(ChatFormatting.BLUE));
     }
 }
 

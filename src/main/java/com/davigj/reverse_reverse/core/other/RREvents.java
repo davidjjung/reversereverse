@@ -23,6 +23,7 @@ import net.minecraftforge.client.event.ViewportEvent;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
@@ -66,8 +67,8 @@ public class RREvents {
     public static void villagerTrades(VillagerTradesEvent event) {
         if (RRConfig.COMMON.villagersTrade.get()) {
             if (RRConfig.COMMON.nostalgicTrade.get()) {
-                TradeUtil.addVillagerTrades(event, VillagerProfession.ARMORER, TradeUtil.APPRENTICE, new TradeUtil.BlueprintTrade(
-                        new ItemStack(Items.ROSE_BUSH, 1), new ItemStack(Items.EMERALD, 8),
+                TradeUtil.addVillagerTrades(event, VillagerProfession.ARMORER, TradeUtil.EXPERT, new TradeUtil.BlueprintTrade(
+                        new ItemStack(Items.ROSE_BUSH, 1), new ItemStack(Items.EMERALD, 18),
                         new ItemStack(RRItems.NOSTALGIC_GLASSES.get(), 1), 3, 8, 3
                 ));
             }
@@ -84,19 +85,19 @@ public class RREvents {
         }
     }
 
-    @SubscribeEvent
+    @SubscribeEvent(priority = EventPriority.LOW)
     public static void onFallDamage (LivingAttackEvent event) {
-        if (event.getEntity() instanceof Player player && event.getSource().isFall() && player.level.isClientSide) {
+        if (event.getEntity() instanceof Player player && event.getSource().isFall()) {
             if (player.getItemBySlot(EquipmentSlot.FEET).getItem() instanceof MoonWalkersItem) {
                 float damage = event.getAmount();
-                if (damage * Math.max((1 - RRConfig.COMMON.moonFallReduction.get()), 0) < 3.0F) {
+                if (damage * Math.max((1 - RRConfig.COMMON.moonFallReduction.get()), 0) <= 3.0F) {
                     event.setCanceled(true);
                 }
             }
         }
     }
 
-    @SubscribeEvent
+    @SubscribeEvent(priority = EventPriority.HIGH)
     public static void onFallHurt (LivingHurtEvent event) {
         if (event.getEntity() instanceof Player player &&
                 player.getItemBySlot(EquipmentSlot.FEET).getItem() instanceof MoonWalkersItem && event.getSource().isFall()) {

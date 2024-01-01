@@ -3,8 +3,10 @@ package com.davigj.reverse_reverse.common.item;
 import com.davigj.reverse_reverse.client.model.MoonWalkersModel;
 import com.davigj.reverse_reverse.core.ReverseReverse;
 import com.davigj.reverse_reverse.core.registry.RRParticleTypes;
+import net.minecraft.ChatFormatting;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.player.LocalPlayer;
+import net.minecraft.network.chat.Component;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -13,11 +15,15 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
+import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.Nullable;
+import java.util.List;
 import java.util.function.Consumer;
 
 public class MoonWalkersItem extends ArmorItem {
@@ -55,5 +61,10 @@ public class MoonWalkersItem extends ArmorItem {
     @Override
     public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
         return ReverseReverse.MOD_ID + ":textures/models/armor/moon_walkers.png";
+    }
+
+    public void appendHoverText(@NotNull ItemStack stack, @Nullable Level worldIn, @NotNull List<Component> tooltip, @NotNull TooltipFlag flagIn) {
+        tooltip.add(Component.translatable("item.reverse_reverse.backwards").withStyle(ChatFormatting.GRAY));
+        tooltip.add(Component.translatable("item.reverse_reverse.moon_walkers_zero_gravity").withStyle(ChatFormatting.BLUE));
     }
 }

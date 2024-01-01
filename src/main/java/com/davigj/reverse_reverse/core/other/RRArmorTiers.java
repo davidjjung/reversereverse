@@ -25,7 +25,7 @@ public class RRArmorTiers {
 
     static {
         RETRO = new BlueprintArmorMaterial(new ResourceLocation(
-                "reverse_reverse", "retro"), 18, new int[]{0, 0, 0, 0}, 4,
+                "reverse_reverse", "retro"), 18, new int[]{1, 0, 0, 0}, 4,
                 getSound("minecraft", new ResourceLocation("minecraft", "block.wool.break")), 0.0F, 0.0F, () -> {
             return Ingredient.of(new ItemLike[]{(ItemLike) Items.WHITE_WOOL});
         });
@@ -35,7 +35,7 @@ public class RRArmorTiers {
             return Ingredient.of(new ItemLike[]{(ItemLike) Blocks.STONE});
         });
         NOSTALGIC = new BlueprintArmorMaterial(new ResourceLocation(
-                "reverse_reverse", "nostalgic"), 12, new int[]{0, 0, 0, 0}, 0,
+                "reverse_reverse", "nostalgic"), 12, new int[]{0, 0, 0, 1}, 0,
                 getSound("minecraft", new ResourceLocation("minecraft", "block.flowering_azalea.place")), 0.0F, 0.0F, () -> {
             return Ingredient.of(new ItemLike[]{(ItemLike) Items.ROSE_BUSH});
         });

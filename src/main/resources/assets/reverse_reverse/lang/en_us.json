@@ -1,5 +1,9 @@
 {
   "item.reverse_reverse.retro_sneakers": "Retro Sneakers",
   "item.reverse_reverse.nostalgic_glasses": "Nostalgic Glasses",
-  "item.reverse_reverse.moon_walkers": "Moon Walkers"
+  "item.reverse_reverse.moon_walkers": "Moon Walkers",
+  "item.reverse_reverse.backwards": "When Moving Backwards:",
+  "item.reverse_reverse.moon_walkers_zero_gravity": " Reduced Gravity",
+  "item.reverse_reverse.retro_sneakers_speed_boost": " +0.1 Speed",
+  "item.reverse_reverse.nostalgic_glasses_backwards": "Backwards Vision"
 }
