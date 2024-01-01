@@ -1,4 +1,6 @@
-package com.davigj.reverse_reverse.client.model;// Made with Blockbench 4.9.2
+package com.davigj.reverse_reverse.client.model;
+
+// Made with Blockbench 4.9.2
 // Exported for Minecraft version 1.17 or later with Mojang mappings
 // Paste this class into your mod and generate all required imports
 
@@ -11,11 +13,11 @@ import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.world.entity.LivingEntity;
 
-public class RetroSneakersModel<T extends LivingEntity> extends HumanoidModel<T> {
+public class MoonWalkersModel<T extends LivingEntity> extends HumanoidModel<T> {
 	private final ModelPart RightLeg;
 	private final ModelPart LeftLeg;
 
-	public RetroSneakersModel(ModelPart root) {
+	public MoonWalkersModel(ModelPart root) {
 		super(root);
 		this.RightLeg = root.getChild("right_leg");
 		this.LeftLeg = root.getChild("left_leg");
