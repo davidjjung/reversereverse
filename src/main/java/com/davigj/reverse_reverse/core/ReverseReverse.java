@@ -1,10 +1,16 @@
 package com.davigj.reverse_reverse.core;
 
+import com.davigj.reverse_reverse.client.model.MoonWalkersModel;
+import com.davigj.reverse_reverse.core.other.RRModelLayers;
 import com.davigj.reverse_reverse.core.registry.RRParticleTypes;
 import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
@@ -28,6 +34,11 @@ public class ReverseReverse {
         bus.addListener(this::commonSetup);
         bus.addListener(this::clientSetup);
         bus.addListener(this::dataSetup);
+
+        DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {
+            bus.addListener(this::registerLayerDefinitions);
+        });
+
         context.registerConfig(ModConfig.Type.COMMON, RRConfig.COMMON_SPEC);
     }
 
@@ -45,5 +56,11 @@ public class ReverseReverse {
 
     private void dataSetup(GatherDataEvent event) {
 
+    }
+
+    @OnlyIn(Dist.CLIENT)
+    private void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
+        event.registerLayerDefinition(RRModelLayers.MOON_WALKERS, MoonWalkersModel::createArmorLayer);
+        event.registerLayerDefinition(RRModelLayers.RETRO_SNEAKERS, MoonWalkersModel::createArmorLayer);
     }
 }

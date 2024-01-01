@@ -3,7 +3,6 @@ package com.davigj.reverse_reverse.core.other;
 import com.teamabnormals.blueprint.core.api.BlueprintArmorMaterial;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
