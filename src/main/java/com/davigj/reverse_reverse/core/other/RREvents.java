@@ -68,7 +68,7 @@ public class RREvents {
         if (RRConfig.COMMON.villagersTrade.get()) {
             if (RRConfig.COMMON.nostalgicTrade.get()) {
                 TradeUtil.addVillagerTrades(event, VillagerProfession.ARMORER, TradeUtil.EXPERT, new TradeUtil.BlueprintTrade(
-                        new ItemStack(Items.ROSE_BUSH, 1), new ItemStack(Items.EMERALD, 18),
+                        new ItemStack(Items.ROSE_BUSH, 1), new ItemStack(Items.EMERALD, 14),
                         new ItemStack(RRItems.NOSTALGIC_GLASSES.get(), 1), 3, 8, 3
                 ));
             }
