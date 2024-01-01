@@ -1,11 +1,15 @@
 package com.davigj.reverse_reverse.common.item;
 
+import com.davigj.reverse_reverse.client.model.MoonWalkersModel;
+import com.davigj.reverse_reverse.client.model.RetroSneakersModel;
 import com.davigj.reverse_reverse.core.RRConfig;
 import com.davigj.reverse_reverse.core.ReverseReverse;
+import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -15,9 +19,13 @@ import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import net.minecraftforge.common.ForgeMod;
 
 import javax.annotation.Nullable;
+import java.util.function.Consumer;
 
 public class RetroSneakersItem extends ArmorItem {
     private static final AttributeModifier SPEED_BOOST_MODIFIER = new AttributeModifier(
@@ -69,9 +77,20 @@ public class RetroSneakersItem extends ArmorItem {
     }
 
     @Override
+    @OnlyIn(Dist.CLIENT)
+    public void initializeClient(Consumer<IClientItemExtensions> consumer) {
+        consumer.accept(new IClientItemExtensions() {
+            @Override
+            public HumanoidModel<?> getHumanoidArmorModel(LivingEntity entity, ItemStack stack, EquipmentSlot slot, HumanoidModel<?> properties) {
+                return new RetroSneakersModel<>(RetroSneakersModel.createArmorLayer().bakeRoot());
+            }
+        });
+    }
+
+    @Override
     @Nullable
     public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
-        return new ResourceLocation(ReverseReverse.MOD_ID, "textures/models/armor/retro_layer_1.png").toString();
+        return new ResourceLocation(ReverseReverse.MOD_ID, "textures/models/armor/retro_sneakers.png").toString();
     }
 }
 
