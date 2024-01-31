@@ -1,8 +1,6 @@
 package com.davigj.reverse_reverse.common.item;
 
-import com.davigj.reverse_reverse.client.model.MoonWalkersModel;
 import com.davigj.reverse_reverse.client.model.RetroSneakersModel;
-import com.davigj.reverse_reverse.core.RRConfig;
 import com.davigj.reverse_reverse.core.ReverseReverse;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.model.HumanoidModel;
@@ -35,12 +33,12 @@ import java.util.function.Consumer;
 public class RetroSneakersItem extends ArmorItem {
     private static final AttributeModifier SPEED_BOOST_MODIFIER = new AttributeModifier(
             "retro_boost",
-            0.10,
-            AttributeModifier.Operation.ADDITION
+            0.80,
+            AttributeModifier.Operation.MULTIPLY_BASE
     );
     private static final AttributeModifier STEP_HEIGHT_MODIFIER = new AttributeModifier(
             "retro_step",
-            1.0,
+            1.5,
             AttributeModifier.Operation.ADDITION
     );
 
@@ -101,6 +99,7 @@ public class RetroSneakersItem extends ArmorItem {
     public void appendHoverText(@NotNull ItemStack stack, @Nullable Level worldIn, @NotNull List<Component> tooltip, @NotNull TooltipFlag flagIn) {
         tooltip.add(Component.translatable("item.reverse_reverse.backwards").withStyle(ChatFormatting.GRAY));
         tooltip.add(Component.translatable("item.reverse_reverse.retro_sneakers_speed_boost").withStyle(ChatFormatting.BLUE));
+        tooltip.add(Component.translatable("item.reverse_reverse.retro_sneakers_step_height_boost").withStyle(ChatFormatting.BLUE));
     }
 }
 

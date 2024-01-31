@@ -4,6 +4,7 @@
   "item.reverse_reverse.moon_walkers": "Moon Walkers",
   "item.reverse_reverse.backwards": "When Moving Backwards:",
   "item.reverse_reverse.moon_walkers_zero_gravity": " Reduced Gravity",
-  "item.reverse_reverse.retro_sneakers_speed_boost": " +0.1 Speed",
-  "item.reverse_reverse.nostalgic_glasses_backwards": "Backwards Vision"
+  "item.reverse_reverse.retro_sneakers_speed_boost": "+80% Speed",
+  "item.reverse_reverse.nostalgic_glasses_backwards": "Backwards Vision",
+  "item.reverse_reverse.retro_sneakers_step_height_boost": "+1.5 Step Height"
 }
