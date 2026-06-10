@@ -1,0 +1,42 @@
+modLoader = "javafml"
+loaderVersion = "[1,)"
+issueTrackerURL = "https://github.com/davidjjung/highnoon/issues"
+license = "MIT License"
+
+[[mixins]]
+config = "reverse_reverse.mixins.json"
+
+[[mods]]
+modId = "reverse_reverse"
+version = "${mod_version}"
+logoFile = "logo.png"
+itemIcon = "reverse_reverse:retro_sneakers"
+configBackground = "minecraft:textures/block/dirt.png"
+authors = "DavigJ"
+credits = "Noonyeyz, Supermightbyte"
+displayURL = "https://modrinth.com/mod/reverse-reverse"
+displayName = "Reverse Reverse"
+description = '''
+    Cha cha real smooth. Adds some quirky armor items associated with moving backwards.
+    '''
+
+[[dependencies.reverse_reverse]]
+modId = "minecraft"
+type = "required"
+versionRange = "[${mc_version}]"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.reverse_reverse]]
+modId = "neoforge"
+type = "required"
+versionRange = "[${neoforge},)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.reverse_reverse]]
+modId = "blueprint"
+type = "required"
+versionRange = "[8.0.6,)"
+ordering = "AFTER"
+side = "BOTH"

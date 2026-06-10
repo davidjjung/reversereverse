@@ -1,17 +1,17 @@
 package com.davigj.reverse_reverse.core;
 
-import net.minecraftforge.common.ForgeConfigSpec;
+import net.neoforged.neoforge.common.ModConfigSpec;
 import org.apache.commons.lang3.tuple.Pair;
 
 public class RRConfig {
     public static class Common {
-        public final ForgeConfigSpec.ConfigValue<Boolean> villagersTrade;
-        public final ForgeConfigSpec.ConfigValue<Boolean> retroTrade;
-        public final ForgeConfigSpec.ConfigValue<Boolean> nostalgicTrade;
-        public final ForgeConfigSpec.ConfigValue<Boolean> moonTrade;
-        public final ForgeConfigSpec.ConfigValue<Double> moonFallReduction;
+        public final ModConfigSpec.ConfigValue<Boolean> villagersTrade;
+        public final ModConfigSpec.ConfigValue<Boolean> retroTrade;
+        public final ModConfigSpec.ConfigValue<Boolean> nostalgicTrade;
+        public final ModConfigSpec.ConfigValue<Boolean> moonTrade;
+        public final ModConfigSpec.ConfigValue<Double> moonFallReduction;
 
-        Common (ForgeConfigSpec.Builder builder) {
+        Common (ModConfigSpec.Builder builder) {
             builder.push("config");
             builder.push("trading");
             villagersTrade = builder.comment("Do villagers trade reverse reverse armor items").define("Villagers trade", true);
@@ -26,12 +26,12 @@ public class RRConfig {
         }
     }
 
-    static final ForgeConfigSpec COMMON_SPEC;
+    static final ModConfigSpec COMMON_SPEC;
     public static final RRConfig.Common COMMON;
 
 
     static {
-        final Pair<Common, ForgeConfigSpec> specPair = new ForgeConfigSpec.Builder().configure(RRConfig.Common::new);
+        final Pair<Common, ModConfigSpec> specPair = new ModConfigSpec.Builder().configure(RRConfig.Common::new);
         COMMON_SPEC = specPair.getRight();
         COMMON = specPair.getLeft();
     }
